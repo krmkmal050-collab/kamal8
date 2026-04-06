@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>For maloka my women ❤️</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin: 0;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff4b5c;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* صور صغيرة في المعرض */
+#gallery img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* الصورة المكبرة */
+#overlay {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+#overlay img {
+    max-width:80%;
+    max-height:80%;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحة تسجيل الدخول -->
+<div id="loginPage" class="container">
+    <h2>ادخلي الاسم والباسورد ❤️</h2>
+    <input type="text" id="username" placeholder="الاسم"><br>
+    <input type="password" id="password" placeholder="الباسورد"><br>
+    <button onclick="login()">دخول</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<!-- الصفحة الرئيسية -->
+<div id="mainPage" class="hidden">
+    <audio id="song" loop>
+        <source src="songmalak.mp3" type="audio/mpeg">
+    </audio>
+
+    <div style="
+        width:80%;
+        max-width:600px;
+        margin:50px auto;
+        padding:30px;
+        background:rgb(251, 193, 171);
+        border-radius:20px;
+        box-shadow:0 20px 40px rgba(4, 4, 4, 0.322);
+        transition:0.3s;
+    "
+    onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+    onmouseout="this.style.transform='none'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'"
+    >
+
+        <p style="
+            font-size:18px;
+            line-height:1.8;
+            color:#333;
+        ">
+            بما انك دخلتي هنا يبقي عرفتي الباسورد وهو يوم كتب كتابنا ❤️<br><br>
+            وعايز اقولك شكرا علي وجودك ووقفتك جمبي بجد ❤️<br><br>
+            ومش هنسالك اي مره اتعصبت واتخانقنا وعدتيها لجل ما نكمل ❤️<br><br>
+            وبما ان دا يوم مهم جدا ليا حابب اشكرك النهارده ❤️<br><br>
+            علي كوني شخص مستهلك عاطفيا ومع ذلك مكمله ❤️<br><br>
+            وعارف اني مدلعتكيش كفاية بس بجد انتي الطف حد ❤️<br><br>
+            ومش عارف ازاي حد باللطافه دي يبقا جمبي ويبقا الدافع عشان اكمل ❤️
+        </p>
+
+    </div>
+
+    <!-- زرار فتح الصور -->
+    <button onclick="showGallery()">تحب نقلب في الذكريات؟ 📸</button>
+
+    <!-- الصور مخفية افتراضياً -->
+    <div id="gallery" class="hidden" style="margin-top:30px;">
+        <img src="IMG_20250828_162108.jpg" onclick="openImage(this.src)">
+        <img src="Snapchat-161659777.jpg" onclick="openImage(this.src)">
+        <img src="Snapchat-314071640.jpg" onclick="openImage(this.src)">
+    </div>
+
+</div>
+
+<!-- الصورة المكبرة -->
+<div id="overlay" onclick="closeImage()">
+    <img id="fullImage">
+</div>
+
+<script>
+const correctUsername = "malak"; 
+const correctPassword = "1042026"; 
+
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === correctUsername && pass === correctPassword) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+
+        document.getElementById("song").play();
+    } else {
+        document.getElementById("error").innerText =
+        "غير مصرح لك بالدخول هذا الموقع لشخص واحد فقط وهي زوجتي ❤️";
+    }
+}
+
+// إظهار الصور عند الضغط على زر
+function showGallery() {
+    document.getElementById("gallery").style.display = "block";
+}
+
+// تكبير الصورة عند الضغط عليها
+function openImage(src) {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("fullImage").src = src;
+}
+
+// غلق الصورة المكبرة
+function closeImage() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
